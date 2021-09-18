@@ -1,16 +1,44 @@
 <template>
     <div>
         <AddTaskDialog />
-        <v-container>
         <v-card>
-            <v-card-title>
-                To-Do-App-Nuxt-Vuetify
-            </v-card-title>
-            <v-card-text>
-                <Tasks />
-            </v-card-text>
+            <v-container>
+                <v-card-title>
+                    ToDoApp-Nuxt-Vuetify
+                </v-card-title>
+                <v-row>
+                    <v-col v-for="(task, taskIdx) in tasks" :key="taskIdx" cols="12">
+                        <v-card class="pa-2" outlined>
+                            <v-row>
+                                <v-col cols="10">
+                                    <Tasks 
+                                    :no="task.No"
+                                    :title="task.title"
+                                    :limit="task.limit" />
+                                </v-col>
+                                <v-col cols="2">
+                                    <v-btn elevation="1" fab x-small color="cyan" right>
+                                        <v-icon color="white">
+                                            mdi-pencil
+                                        </v-icon>
+                                    </v-btn>
+                                    <v-btn elevation="1" fab x-small color="teal" >
+                                        <v-icon color="white">
+                                            mdi-pencil
+                                        </v-icon>
+                                    </v-btn>
+                                    <v-btn elevation="1" fab x-small color="red" >
+                                        <v-icon color="white">
+                                            mdi-pencil
+                                        </v-icon>
+                                    </v-btn>
+                                </v-col>
+                            </v-row>
+                        </v-card>
+                    </v-col>
+                </v-row>
+            </v-container>
         </v-card>
-        </v-container>
     </div>
 </template>
 
@@ -33,5 +61,7 @@ export default class ToDoApp extends Vue{
 }
 </script>
 <style>
-
+.inner-buttons{
+    text-align: right;
+}
 </style>
