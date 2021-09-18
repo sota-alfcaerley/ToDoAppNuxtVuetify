@@ -1,15 +1,9 @@
 <template>
     <span>
-        <span >
-            {{ no }}
-            .
-        </span>
-        <span >
-            {{ title }}
-        </span>
-        <span>
-            {{ limit }}
-        </span>
+        {{ no }}
+        .
+        {{ title }}
+        {{ limit }}
     </span>
 </template>
 
@@ -19,6 +13,8 @@ import {Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class Tasks extends Vue{
     
+    check: boolean = false;
+
     @Prop({ type: Number})
     no?: number;
 

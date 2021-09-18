@@ -1,7 +1,7 @@
 <template>
     <div>
         <AddTaskDialog />
-        <v-card>
+        <v-card color="blue-grey lighten-5">
             <v-container>
                 <v-card-title>
                     ToDoApp-Nuxt-Vuetify
@@ -9,25 +9,25 @@
                 <v-row>
                     <v-col v-for="(task, taskIdx) in tasks" :key="taskIdx" cols="12">
                         <v-card class="pa-2" outlined>
-                            <v-row>
-                                <v-col cols="10">
+                            <v-row align="center">
+                                <v-col cols="11" align-self="center">                                    
                                     <Tasks 
                                     :no="task.No"
                                     :title="task.title"
                                     :limit="task.limit" />
                                 </v-col>
-                                <v-col cols="2">
-                                    <v-btn elevation="1" fab x-small color="cyan" right>
+                                <v-col cols="1">
+                                    <v-btn elevation="1" fab x-small color="deep-purple darken-4">
                                         <v-icon color="white">
                                             mdi-pencil
                                         </v-icon>
                                     </v-btn>
-                                    <v-btn elevation="1" fab x-small color="teal" >
+                                    <v-btn elevation="1" fab x-small color="deep-purple darken-4" >
                                         <v-icon color="white">
                                             mdi-pencil
                                         </v-icon>
                                     </v-btn>
-                                    <v-btn elevation="1" fab x-small color="red" >
+                                    <v-btn elevation="1" fab x-small color="deep-purple darken-4" >
                                         <v-icon color="white">
                                             mdi-pencil
                                         </v-icon>
@@ -56,6 +56,8 @@ import Tasks from'~/components/ToDoApp/Tasks.vue'
 })
 
 export default class ToDoApp extends Vue{
+    check: boolean = false;
+
     header: object[] = tasks.task.headers
     tasks: object[] = tasks.task.tasks;
 }
