@@ -1,9 +1,22 @@
 <template>
     <span>
-        {{ no }}
-        .
-        {{ title }}
-        {{ limit }}
+        <v-row justify="center">
+            <v-col cols="1">
+                <v-simple-checkbox v-model="check" color="deep-purple darken-4">
+                </v-simple-checkbox>
+            </v-col>
+            <v-col cols="7">
+                {{ no }}
+                .
+                {{ title }}
+            </v-col>
+            <v-col cols="2">
+                {{ limit }}
+            </v-col>
+            <v-col cols="1">
+                {{ priority }}
+            </v-col>
+        </v-row>
     </span>
 </template>
 
@@ -23,6 +36,9 @@ export default class Tasks extends Vue{
 
     @Prop({ type: Date })
     limit?: Date;
+
+    @Prop({ type: String })
+    priority!: string
 
     
 }
