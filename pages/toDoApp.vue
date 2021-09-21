@@ -1,24 +1,24 @@
 <template>
     <div>
-        <v-card color="blue-grey lighten-5">
+        <v-card color="grey lighten-5">
             <v-container>
                 <v-card-title>
                     ToDoApp-Nuxt-Vuetify
                 </v-card-title>
-                    <v-btn
-                      color="deep-purple darken-4"
-                      dark
-                      @click.stop="dialog = true"
-                    >
-                      Add Task
-                    </v-btn>
+                <v-btn
+                  color="deep-purple darken-4"
+                  dark
+                  @click.stop="dialog = true"
+                >
+                  Add Task
+                </v-btn>
                 <v-dialog
                     v-model="dialog"
                     width="1000">
                     <AddTaskDialog />
                 </v-dialog>
                 <v-row>
-                    <v-col v-for="(task, taskIdx) in tasks" :key="taskIdx" cols="12">
+                    <v-col v-for="(task, taskIdx) in todos" :key="taskIdx" cols="12">
                         <v-card class="pa-2" outlined>
                             <v-row>
                                 <v-col cols="11" align-self="center">                                    
@@ -51,9 +51,12 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+// import { mapMutations } from 'vuex'
 import tasks from '~/assets/json/tasks.json'
 import AddTaskDialog from '~/components/ToDoApp/AddTaskDialog.vue'
 import Tasks from'~/components/ToDoApp/Tasks.vue'
+import { ToDoModule }  from '~/store/ToDoApp'
+
 
 @Component({
     components: {
@@ -64,9 +67,12 @@ import Tasks from'~/components/ToDoApp/Tasks.vue'
 
 export default class ToDoApp extends Vue{
     dialog: boolean = false;
-
-    header: object[] = tasks.task.headers
     tasks: object[] = tasks.task.tasks;
+    taskss: object[] = this.$store.state.tasks
+    
+    get todos() {
+        return ToDoModule.tasks
+    } 
 }
 </script>
 <style>
