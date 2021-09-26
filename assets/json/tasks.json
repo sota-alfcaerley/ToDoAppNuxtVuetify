@@ -26,7 +26,7 @@
                 "limit": "2021/10/30",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": true,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -36,7 +36,7 @@
                 "limit": "2022/09/30",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -46,7 +46,7 @@
                 "limit": "2021/10/15",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -56,7 +56,7 @@
                 "limit": "2022/06/02",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -66,7 +66,7 @@
                 "limit": "2021/09/12",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -76,7 +76,7 @@
                 "limit": "2021/09/12",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -86,7 +86,7 @@
                 "limit": "2021/09/12",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -96,7 +96,7 @@
                 "limit": "2021/09/12",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             },
@@ -106,7 +106,7 @@
                 "limit": "2021/09/12",
                 "priority": "High",
                 "finishDateTime": "",
-                "isFinised": false,
+                "isFinished": false,
                 "isLogicalDeleted": false,
                 "isDeleted": false
             }
