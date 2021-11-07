@@ -21,11 +21,18 @@ import {Component, Vue} from 'vue-property-decorator'
 import { TodoStore } from '~/store'
 
 @Component
-export default class Tasks extends Vue{
-        // totalCount: number = this.$store.state.todo.counter;  
-    totalCount: number = TodoStore.counter
-    finishedCount: number = TodoStore.finishedCount
-    notFinishedCount: number = TodoStore.notFinishedCount
+export default class Tasks extends Vue {
+    get totalCount(): number{
+        return TodoStore.counter
+    }
+
+    get finishedCount(): number{
+        return TodoStore.finishedCount
+    }
+
+    get notFinishedCount(): number{
+        return TodoStore.notFinishedCount
+    }
 }
 </script>
 

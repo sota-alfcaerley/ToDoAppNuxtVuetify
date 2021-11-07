@@ -26,7 +26,7 @@
                     <v-col cols="12">
                         <Counter />
                     </v-col>
-                    <v-col v-for="(task, taskIdx) in taskList" :key="taskIdx" cols="12">
+                    <v-col v-for="(task, taskIdx) in todos" :key="taskIdx" cols="12">
                         <Tasks
                             :no="taskIdx + 1"
                             :task-idx="taskIdx"
@@ -58,8 +58,9 @@ import { TodoStore } from '~/store'
 
 export default class ToDoApp extends Vue{
     dialog: boolean = false;
-    // taskList: object[] = this.$store.state.todo.taskList;  
-    taskList: object[] = TodoStore.taskList;  
+    get todos() {
+        return TodoStore.taskList
+    }
 }
 </script>
 <style>

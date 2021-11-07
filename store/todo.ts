@@ -5,10 +5,12 @@ import tasks from '~/assets/json/tasks.json'
 
 Vue.use(Vuex)
 
-type Task = typeof tasks.task.tasks
+type Tasks = typeof tasks.task.tasks
+type Task = typeof tasks.task.tasks[0]
 
 export interface Itasks {
-  tasks: Task;
+  tasks: Tasks;
+  task: Task;
 }
 
 @Module({
@@ -18,18 +20,21 @@ export interface Itasks {
   })
 
 export default class Todos extends VuexModule {
-    public taskList: Task = tasks.task.tasks;
+    public taskList: Tasks = tasks.task.tasks;
     public counter: number = tasks.task.tasks.length;
-    public finishedCount: number = 0;
-    public notFinishedCount: number = 0; 
+    public finishedCount: number = this.taskList.filter((task) => task.isFinished).length;
+    public notFinishedCount: number = this.taskList.filter((task) => !task.isFinished).length; 
 
     @Mutation
     toggle(idx: number){
        this.taskList[idx].isFinished = !this.taskList[idx].isFinished;
+       this.finishedCount =  this.taskList.filter((task) => task.isFinished).length;
+       this.notFinishedCount =  this.taskList.filter((task) => !task.isFinished).length;
     }
 
-    public get totalCount(): number
+    @Mutation
+    addTask(task: Task)
     {
-      return this.counter;    
+      this.taskList.push(task)
     }
 }

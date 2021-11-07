@@ -3,8 +3,8 @@
     <v-card>
         <v-row justify="center">
             <v-col cols="1" align-self="center">
-                <!-- <v-simple-checkbox v-model="isFinished" color="blue darken-4" @click="onToggle(taskIdx)"> -->
                 <v-simple-checkbox v-model="isFinished" color="blue darken-4" @click="onToggle(taskIdx)">
+                <!-- <v-simple-checkbox v-model="toggleIsFinished" color="blue darken-4" @click="onToggle(taskIdx)"> -->
                 </v-simple-checkbox>
             </v-col>
             <v-col cols="6" align-self="center">
@@ -36,6 +36,7 @@
 
 <script lang="ts">
 import {Component, Vue, Prop } from 'vue-property-decorator'
+import { TodoStore } from '~/store'
 
 @Component
 export default class Tasks extends Vue{
@@ -58,9 +59,13 @@ export default class Tasks extends Vue{
     @Prop({ type: Boolean })
     isFinished!: boolean
 
+    get toggleIsFinished()
+    {
+        return this.isFinished
+    }
+
     onToggle(taskIdx: number){
-        // eslint-disable-next-line no-unused-expressions
-        this.$store.commit('toggle', taskIdx)
+        TodoStore.toggle(taskIdx)
     }
 }
 </script>
