@@ -23,9 +23,13 @@
                             <AddTaskDialog />
                         </v-dialog>
                     </v-col>
-                    <v-col v-for="(task, taskIdx) in taskList" :key="taskIdx" cols="12">
-                        <Tasks 
+                    <v-col cols="12">
+                        <Counter />
+                    </v-col>
+                    <v-col v-for="(task, taskIdx) in todos" :key="taskIdx" cols="12">
+                        <Tasks
                             :no="taskIdx + 1"
+                            :task-idx="taskIdx"
                             :title="task.title"
                             :limit="task.limit"
                             :priority="task.priority"
@@ -41,23 +45,29 @@
 import { Vue, Component } from 'vue-property-decorator'
 import AddTaskDialog from '~/components/ToDoApp/AddTaskDialog.vue'
 import Tasks from'~/components/ToDoApp/Tasks.vue'
+import Counter from '~/components/ToDoApp/Counter.vue'
+import { TodoStore } from '~/store'
 
 @Component({
     components: {
         AddTaskDialog,
-        Tasks
+        Tasks, 
+        Counter
     }
 })
 
 export default class ToDoApp extends Vue{
     dialog: boolean = false;
-    taskList: object[] = this.$store.state.ToDoApp.taskList;
-    
-
+    get todos() {
+        return TodoStore.taskList
+    }
 }
 </script>
 <style>
 .inner-buttons{
     text-align: right;
+}
+.finished{
+    background-color: #BBDEFB;
 }
 </style>
