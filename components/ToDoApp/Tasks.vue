@@ -1,20 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 <template>
-    <v-card :class="{finished: isFinished}">
+    <v-card>
         <v-row justify="center">
             <v-col cols="1" align-self="center">
-                <v-simple-checkbox v-model="IsFinished" color="blue darken-4">
+                <!-- <v-simple-checkbox v-model="isFinished" color="blue darken-4" @click="onToggle(taskIdx)"> -->
+                <v-simple-checkbox v-model="isFinished" color="blue darken-4" @click="onToggle(taskIdx)">
                 </v-simple-checkbox>
             </v-col>
             <v-col cols="6" align-self="center">
                 {{ no }}
                 .
-                {{ title }}
+                {{ Title }}
             </v-col>
             <v-col cols="2" align-self="center">
                 {{ limit }}
             </v-col>
             <v-col cols="1" align-self="center">
-                {{ priority }} {{ IsFinished }}
+                {{ priority }} {{ isFinished }}
             </v-col>
             <v-col cols="1" align-self="center">
                 <v-btn elevation="1" fab x-small color="blue darken-4" >
@@ -34,13 +36,9 @@
 
 <script lang="ts">
 import {Component, Vue, Prop } from 'vue-property-decorator'
-// import { mapState } from "vuex";
 
 @Component
 export default class Tasks extends Vue{
-
-    @Prop({ type: Object })
-    task?: object
     
     @Prop({ type: Number})
     taskIdx?: number;
@@ -49,7 +47,7 @@ export default class Tasks extends Vue{
     no?: number;
 
     @Prop({ type: String})
-    title!: string;
+    Title!: string;
 
     @Prop({ type: Date })
     limit?: Date;
@@ -58,20 +56,14 @@ export default class Tasks extends Vue{
     priority!: string
 
     @Prop({ type: Boolean })
-    IsFinished!: boolean
+    isFinished!: boolean
 
-    isFinished: boolean = this.IsFinished
-    // toggle(){
-    //     this.$store.commit('toggle', this.taskIdx)
-    // }
-        styleObject: object = {
-            'background-color':"#E3F2FD"
-        }
+    onToggle(taskIdx: number){
+        // eslint-disable-next-line no-unused-expressions
+        this.$store.commit('toggle', taskIdx)
+    }
 }
 </script>
 
 <style>
-.finished{
-    background-color: #BBDEFB;
-}
 </style>

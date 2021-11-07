@@ -1,11 +1,12 @@
-// import { Store } from 'vuex'
-// import { getModule } from 'vuex-module-decorators'
-// import  ToDoAppModule from '~/store/ToDoApp'
 
-// // eslint-disable-next-line import/no-mutable-exports
-// let TodoStore: ToDoAppModule
-// function initialiseStores(store: Store<any>): void {
-//   TodoStore = getModule(ToDoAppModule, store)
-// }
+/* eslint-disable import/no-mutable-exports */
+import { Store } from 'vuex'
+import { getModule } from 'vuex-module-decorators'
+import Todo from '~/store/todo'
 
-// export { initialiseStores, TodoStore }
+let TodoStore: Todo
+function initialiseStores(store: Store<any>): void {
+  TodoStore = getModule(Todo, store)
+}
+
+export { initialiseStores, TodoStore }

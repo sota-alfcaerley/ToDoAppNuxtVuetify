@@ -12,20 +12,24 @@ export interface Itasks {
 }
 
 @Module({
-    name: 'todoappmodule',
+    name: 'todo',
     stateFactory: true,
     namespaced: true,
   })
 
-export default class ToDoAppModule extends VuexModule {
+export default class Todos extends VuexModule {
     public taskList: Task = tasks.task.tasks;
-    public counter = 0;
-    public finishedTasksCount: number = 0;
-    public notFinishedTasksCout: number = 0; 
+    public counter: number = tasks.task.tasks.length;
+    public finishedCount: number = 0;
+    public notFinishedCount: number = 0; 
 
     @Mutation
     toggle(idx: number){
-      return this.taskList[idx].isFinished!;
-      // ToDoAppModule.state.taskList[idx].isFinished!;
+       this.taskList[idx].isFinished = !this.taskList[idx].isFinished;
     }
-  }
+
+    public get totalCount(): number
+    {
+      return this.counter;    
+    }
+}
