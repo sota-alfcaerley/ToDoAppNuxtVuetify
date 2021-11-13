@@ -57,6 +57,7 @@ import { TodoStore } from '~/store'
 })
 
 export default class ToDoApp extends Vue{
+    isChangedColor: boolean = true;
     dialog: boolean = false;
     get todos() {
         return TodoStore.taskList
@@ -66,8 +67,5 @@ export default class ToDoApp extends Vue{
 <style>
 .inner-buttons{
     text-align: right;
-}
-.finished{
-    background-color: #BBDEFB;
 }
 </style>

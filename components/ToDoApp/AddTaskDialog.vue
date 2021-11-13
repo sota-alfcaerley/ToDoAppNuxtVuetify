@@ -55,7 +55,6 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { TodoStore } from '~/store';
 
 @Component
 
@@ -73,10 +72,6 @@ export default class AddTaskDialog extends Vue{
         { label: 'Mid', value: 'Mid' },
         { label: 'Low', value: 'Low' }
     ]
-
-    get isOpenDialog(){
-        return TodoStore.isOpenDialog
-    }
 
     // picler: Date = new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
 }
