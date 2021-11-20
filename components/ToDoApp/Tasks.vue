@@ -1,9 +1,9 @@
 <template>
     <v-card :color="isFinished ? 'blue lighten-5' : ''">
         <v-container>
-            <v-row justify="center">
+            <v-row>
                 <v-col cols="1" align-self="center">
-                    <v-simple-checkbox v-model="isFinished" color="blue darken-4" value="isFinished" @click="onToggle(taskIdx)">
+                    <v-simple-checkbox v-model="isFinished" color="blue darken-4" @click="onToggle(taskIdx)">
                     </v-simple-checkbox>
                 </v-col>
                 <v-col align-self="center">
@@ -17,7 +17,7 @@
                 <v-col cols="1" align-self="center" class="d-none d-md-flex">
                     {{ priority }}
                 </v-col>
-                <v-col cols="2" align-self="center" class="d-none d-md-flex">
+                <v-col cols="1" align-self="center" class="d-none d-md-flex">
                     <v-btn elevation="1" fab x-small color="blue darken-4">
                         <v-icon color="white">
                             mdi-pencil
@@ -40,11 +40,9 @@ import { TodoStore } from '~/store'
 
 @Component
 export default class Tasks extends Vue{
-
-    isChangedColor:boolean = true;
     
     @Prop({ type: Number})
-    taskIdx?: number;
+    taskIdx!: number;
      
     @Prop({ type: Number})
     no?: number;
@@ -58,16 +56,10 @@ export default class Tasks extends Vue{
     @Prop({ type: String })
     priority!: string
 
-    @Prop({ type: Boolean })
-    isFinished?: boolean
-
-    get toggleIsFinished()
-    {
-        return this.isFinished
-    }
+    isFinished: boolean = TodoStore.taskList[this.taskIdx].isFinished
 
     onToggle(taskIdx: number){
-        TodoStore.toggle(taskIdx)
+        return TodoStore.toggle(taskIdx)
     }
 }
 </script>

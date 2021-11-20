@@ -11,29 +11,23 @@
                 <v-row>
                     <v-col cols="12">
                         <v-btn
-                        color="blue darken-4"
-                        dark
-                        @click.stop="dialog = true"
-                        >
+                            color="blue darken-4"
+                            dark
+                            @click="onToggleIsFinished()">
                         Add Task
                         </v-btn>
-                        <v-dialog
-                            v-model="dialog"
-                            width="1000">
                             <AddTaskDialog />
-                        </v-dialog>
                     </v-col>
                     <v-col cols="12">
                         <Counter />
                     </v-col>
-                    <v-col v-for="(task, taskIdx) in todos" :key="taskIdx" cols="12">
+                    <v-col v-for="(task, taskIdx) in taskList" :key="taskIdx" cols="12">
                         <Tasks
                             :no="taskIdx + 1"
                             :task-idx="taskIdx"
                             :title="task.title"
                             :limit="task.limit"
-                            :priority="task.priority"
-                            :is-finished="task.isFinished" />
+                            :priority="task.priority" />
                     </v-col>
                 </v-row>
             </v-container>
@@ -57,10 +51,13 @@ import { TodoStore } from '~/store'
 })
 
 export default class ToDoApp extends Vue{
-    isChangedColor: boolean = true;
-    dialog: boolean = false;
-    get todos() {
+
+    get taskList() {
         return TodoStore.taskList
+    }
+
+    get onToggleIsFinished(){
+        return TodoStore.toggleOpenDialog
     }
 }
 </script>

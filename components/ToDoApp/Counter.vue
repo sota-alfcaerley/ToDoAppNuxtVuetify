@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator'
+import { Component, Vue} from 'vue-property-decorator'
 import { TodoStore } from '~/store'
 
 @Component
@@ -27,11 +27,11 @@ export default class Tasks extends Vue {
     }
 
     get finishedCount(): number{
-        return TodoStore.finishedCount
+        return TodoStore.getFinishedCount
     }
 
     get notFinishedCount(): number{
-        return TodoStore.notFinishedCount
+        return TodoStore.getNotFinishedCount
     }
 }
 </script>

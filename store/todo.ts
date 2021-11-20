@@ -22,14 +22,31 @@ export interface Itasks {
 export default class Todos extends VuexModule {
     public taskList: Tasks = tasks.task.tasks;
     public counter: number = tasks.task.tasks.length;
-    public finishedCount: number = this.taskList.filter((task) => task.isFinished).length;
-    public notFinishedCount: number = this.taskList.filter((task) => !task.isFinished).length; 
+    public isOpenDialog: boolean = false;
+    // public finishedCount: number = this.taskList.filter((task) => task.isFinished).length;
+    // public notFinishedCount: number = this.taskList.filter((task) => !task.isFinished).length; 
+
+    public get getFinishedCount()
+    {
+      return this.taskList.filter((task) => task.isFinished).length;
+    }
+
+    public get getNotFinishedCount()
+    {
+      return this.taskList.filter((task) => !task.isFinished).length;
+    }
+
+    @Mutation
+    toggleOpenDialog()
+    {
+      this.isOpenDialog = !this.isOpenDialog
+    }
 
     @Mutation
     toggle(idx: number){
        this.taskList[idx].isFinished = !this.taskList[idx].isFinished;
-       this.finishedCount =  this.taskList.filter((task) => task.isFinished).length;
-       this.notFinishedCount =  this.taskList.filter((task) => !task.isFinished).length;
+      //  this.finishedCount =  this.taskList.filter((task) => task.isFinished).length;
+      //  this.notFinishedCount =  this.taskList.filter((task) => !task.isFinished).length;
     }
 
     @Mutation
