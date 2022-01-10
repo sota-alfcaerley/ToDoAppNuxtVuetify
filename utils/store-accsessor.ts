@@ -5,8 +5,8 @@ import { getModule } from 'vuex-module-decorators'
 import Todo from '~/store/todo'
 
 let TodoStore: Todo
-function initialiseStores(store: Store<any>): void {
+function initializeStores(store: Store<any>): void {
   TodoStore = getModule(Todo, store)
 }
 
-export { initialiseStores, TodoStore }
+export { initializeStores, TodoStore }

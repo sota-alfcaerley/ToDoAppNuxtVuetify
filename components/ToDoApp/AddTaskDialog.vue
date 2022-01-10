@@ -57,7 +57,6 @@ import { Vue, Component } from 'vue-property-decorator'
 import { TodoStore } from '~/store'
 
 @Component
-
 export default class AddTaskDialog extends Vue{
 
     isOpenDate: boolean = false;

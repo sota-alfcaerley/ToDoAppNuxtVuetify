@@ -37,8 +37,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import AddTaskDialog from '~/components/ToDoApp/AddTaskDialog.vue'
-import Tasks from'~/components/ToDoApp/Tasks.vue'
+import AddTaskDialog  from '~/components/ToDoApp/AddTaskDialog.vue'
+import Tasks from'~/components/ToDoApp/Tasks'
 import Counter from '~/components/ToDoApp/Counter.vue'
 import { TodoStore } from '~/store'
 

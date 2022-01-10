@@ -45,8 +45,6 @@ export default class Todos extends VuexModule {
     @Mutation
     toggle(idx: number){
        this.taskList[idx].isFinished = !this.taskList[idx].isFinished;
-      //  this.finishedCount =  this.taskList.filter((task) => task.isFinished).length;
-      //  this.notFinishedCount =  this.taskList.filter((task) => !task.isFinished).length;
     }
 
     @Mutation
